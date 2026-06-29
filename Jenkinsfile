@@ -23,7 +23,7 @@ sh 'docker build -t cheaterkook/jenkins-assignment:${BUILD_NUMBER} .'
 }
 stage('push-image') {
  steps {
- sh 'echo DOCKER_CRED_PWS | docker login -u DOCKER_CRED_USR --password-stdin'
+ sh 'echo $DOCKER_CRED_PWS | docker login -u $DOCKER_CRED_USR --password-stdin'
 sh 'docker push cheaterkook/jenkins-assignment:${BUILD_NUMBER}'
 }
 }
